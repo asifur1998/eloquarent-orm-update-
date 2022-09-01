@@ -1,0 +1,31 @@
+
+
+
+
+update 
+ public function update_area($id)
+    {
+        $area = Area::find($id);
+        $area->update();
+        return view ('admin.update_area',compact('area'));
+    }
+
+     public function update_area_confirm(Request $request,$id)
+    {
+        $area = Area::find($id);
+        $area->area_name = $request->add_area;
+        $area->save();
+        return redirect()->back()->with('message','Area has been Updated!');
+    }
+
+ancore url : {{url('update_area',$area->id)}}    <a href=""> edit </a>
+
+route: '/update_area_confirm/{id}'   web.php 
+------------------------------------------------------------------------------------------------------------------------------------------
+Md.Asifur Rahman  laravel framework (eloquarent orm )
+
+
+
+
+
+
